@@ -72,6 +72,8 @@ def funfactnumber():
         "Content-Type": "application/json"
     }
     responsenew = requests.post(url, headers=headers, json=payload)
+    if(value != -1 ):
+        createbuttons()
     return jsonify(response_text + responsenew.text)
 
 
@@ -113,7 +115,7 @@ def TodaysHistory():
         if "India" in text or "Indian" in text:
             result.append(f"({year}) {text}")
 
-    result.append(f"\\n------------- Deaths on this Day -------------")
+    result.append(f"\n------------- Deaths on this Day -------------")
     selected_items = data.get("deaths", [])
 
     for item in selected_items:
@@ -122,7 +124,7 @@ def TodaysHistory():
         if "India" in text or "Indian" in text:
             result.append(f"({year}) {text}")
 
-    result.append(f"\\n------------- Events on this Day -------------")
+    result.append(f"\n------------- Events on this Day -------------")
     selected_items = data.get("events", [])
 
     for item in selected_items:
@@ -139,7 +141,7 @@ def TodaysHistory():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=10000)
-    #app.run(debug=True)
+    #app.run(host='0.0.0.0',port=10000)
+    app.run(debug=True)
 
 
