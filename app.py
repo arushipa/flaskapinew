@@ -72,7 +72,7 @@ def funfactnumber():
         "Content-Type": "application/json"
     }
     responsenew = requests.post(url, headers=headers, json=payload)
-    if(value != -1 ):
+    if(value != 2 ):
         createbuttons()
     return jsonify(response_text + responsenew.text)
 
